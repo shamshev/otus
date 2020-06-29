@@ -1,0 +1,16 @@
+image: docker:19.03.11
+
+variables:
+  DOCKER_TLS_CERTDIR: "/certs"
+
+stages:
+  - docker
+
+services:
+  - docker:19.03.11-dind
+
+docker:
+  stage: docker
+  script:
+    - docker build -t docker-image .
+  when: manual
