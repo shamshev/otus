@@ -1,0 +1,14 @@
+default: 
+  image: docker:19.03.12
+
+stages:
+  - docker
+
+services:
+ - docker:19.03.12-dind
+
+docker:
+  stage: docker
+  script:
+    - docker build -t my-docker-image
+  when: manual
