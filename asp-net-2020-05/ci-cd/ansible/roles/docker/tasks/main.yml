@@ -1,0 +1,29 @@
+---
+# первый шаг - установка докера. но мы предполаагем, что он уже есть
+# этот шаг будет сильно зависеть от выбранной системы:
+# где-то докер ставится в одну комманду, а где-то нет
+#- name: install docker
+#  apt:
+#    name: docker-ce
+
+# ставим пакетный менеджер для python
+- name: Install pip
+  apt: 
+    name: python-pip 
+    state: present
+
+# ставим пакет docker-py, который позволяет работать с докером из питона      
+- name: install docker-py
+  pip: 
+    name: docker-py
+
+# запускаем наш контейнер, tag берём из переменных
+- name: Running the container
+  docker_container:
+    image: nginx:{{ image_tag }}
+    path: docker
+    state: started
+
+# проверям, что он запустился
+- name: Check if container is running
+  shell: docker ps
