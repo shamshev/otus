@@ -1,10 +1,10 @@
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: hdd
+  name: sdd
 provisioner: kubernetes.io/gce-pd
 parameters:
-  type: pd-standard
+  type: pd-ssd
   zone: us-central1-c
-reclaimPolicy: Delete
+reclaimPolicy: Retain
 volumeBindingMode: Immediate
