@@ -26,6 +26,6 @@ And the same for appB
 
 Open in browser [http://localhost:8080/greeting](http://localhost:8080/greeting)
 
-and [http://localhost:8080/greeting](http://localhost:8080/greeting)
+and [http://localhost:9080/greeting](http://localhost:9080/greeting)
 
 ## Find traces in Jager
