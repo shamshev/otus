@@ -1,0 +1,7 @@
+# TRACING-settings
+opentracing:
+  jaeger:
+    service-name: AppA
+    enabled: TRUE
+    udp-sender:
+      host: localhost

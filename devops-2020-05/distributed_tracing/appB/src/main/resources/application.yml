@@ -1,0 +1,10 @@
+# TRACING-settings
+opentracing:
+  jaeger:
+    service-name: AppB
+    enabled: TRUE
+    udp-sender:
+      host: localhost
+
+server:
+  port: 9080
