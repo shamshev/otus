@@ -68,3 +68,27 @@ delete claimRef
 `kubectl get pods`
 
 # demo06
+
+`kubectl apply -f 01_storageclass.yml`
+`kubectl get sc`
+
+`kubectl apply -f 02_pvc.yml`
+`kubectl get pvc`
+`kubectl get pc`
+
+`kubectl apply -f 03_pod_pvc.yml`
+`kubectl exec -it demo06-pod -- /bin/sh`
+`echo "data" > /test/foo`
+
+`kubectl apply -f 04_snapshotclass.yml`
+`kubectl apply -f 05_snapshot.yml`
+`kubectl get volumesnapshot`
+
+`kubectl delete pod demo06-pod`
+`kubectl delet pvc hpvc`
+
+`kubectl apply -f 06_restore.yml`
+`ls -la /var/lib/csi-hostpath-data`
+`kubectl apply -f 03_pod_pvc.yml`
+`kubectl exec -it demo06-pod -- /bin/sh`
+`cat /test/foo`
