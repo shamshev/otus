@@ -62,8 +62,8 @@ delete claimRef
 # demo05
 
 `./deploy_snap.sh`
-`git clone https://github.com/kubernetes-csi/csi-driver-host-path.git`
-`cd csi-driver-host-path && git checkout release-1.4`
+https://github.com/kubernetes-csi/csi-driver-host-path
+`./git_clone.sh`
 `deploy/kubernetes-latest/deploy.sh`
 `kubectl get pods`
 
