@@ -33,3 +33,38 @@ check file in container
 
 node:
 `ls -la /mnt`
+
+# demo03
+
+`kubectl delete -f 02_pvc.yml` 
+`kubectl get pvc`
+`kubectl delete -f 03_pod.yml`
+`kubectl get pvc`
+`kubectl get pv`
+
+`kubectl edit pv demo02-pv`
+delete claimRef
+
+# demo04
+
+`kubectl apply -f 01_pvc.yml`
+`kubectl get pvc`
+`kubectl get pvc demo04-pvc -o yaml | less`
+`kubectl get sc`
+
+`kubectl apply -f 02_pvc_empty.yml`
+`kubectl get pvc`
+
+`kubectl apply -f 03_pv_empty.yml`
+`kubectl get pv`
+`kubectl get pvc`
+
+# demo05
+
+`./deploy_snap.sh`
+`git clone https://github.com/kubernetes-csi/csi-driver-host-path.git`
+`cd csi-driver-host-path && git checkout release-1.4`
+`deploy/kubernetes-latest/deploy.sh`
+`kubectl get pods`
+
+# demo06
