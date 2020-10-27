@@ -2,25 +2,23 @@ image: mcr.microsoft.com/dotnet/core/sdk:3.1
 
 stages:
   - build
-  - test
   - run
 
 before_script:
-  - 'dotnet --version' 
+  - dotnet --version
 
-build:
+build_dotnet_application:
   stage: build
   script:
-    - 'dotnet build'
+    - dotnet build
 
-tests:
-  stage: test
+test_dotnet_application:
+  stage: build
   script:
-    - 'dotnet test'
+    - dotnet test
 
-run:
+run_application:
   stage: run
-  script:
-    - 'dotnet run'
   when: manual
-  
+  script:
+    - dotnet run

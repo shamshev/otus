@@ -1,16 +1,13 @@
-image: docker:19.03.11
-
-variables:
-  DOCKER_TLS_CERTDIR: "/certs"
+image: docker:19.03.13-dind
 
 stages:
   - docker
 
 services:
-  - docker:19.03.11-dind
+  - docker:19.03.13-dind
 
 docker:
   stage: docker
   script:
-    - docker build -t docker-image .
+    - docker build -t otus-app .
   when: manual
