@@ -1,4 +1,4 @@
-# otus-asp.net-2020-05
+# gitlab ci examples 
 
 .gitlab-ci.yml - классический вариант простого ci-пайплайна
 
