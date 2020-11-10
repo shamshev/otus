@@ -1,4 +1,4 @@
-# otus-asp.net-2020-05
+# k8s examples for asp.net
 
 0. General
 
