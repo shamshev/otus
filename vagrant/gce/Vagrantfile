@@ -6,10 +6,6 @@ Vagrant.configure('2') do |config|
     vb.cpus = '2'
   end
 
-  config.vm.provision 'shell',
-    privileged: true,
-    inline: 'curl -sfL https://get.k3s.io | sh -'
-
   config.vm.synced_folder "../../k8s", "/k8s",
     owner: "root", group: "root"
 end

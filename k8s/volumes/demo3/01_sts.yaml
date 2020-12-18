@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -31,17 +30,3 @@ spec:
       resources:
         requests:
           storage: 1Gi
----
-apiVersion: v1
-kind: Service
-metadata:
- name: mongo
- labels:
-   name: mongo
-spec:
- ports:
- - port: 27017
-   targetPort: 27017
- clusterIP: None
- selector:
-   role: mongo
