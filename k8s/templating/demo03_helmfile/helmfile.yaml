@@ -1,0 +1,32 @@
+environments:
+  develop:
+    values:
+      - domain: dev.IP.nip.io
+  production:
+    values:
+      - domain: IP.xip.io
+
+repositories:
+- name: stable
+  url: https://charts.helm.sh/stable
+- name: harbor
+  url: https://helm.goharbor.io
+
+templates:
+  template: &template
+    missingFileHandler: Info
+    values:
+    - ./values/{{`{{ .Release.Name }}`}}.yaml.gotmpl
+
+releases:
+- name: ingress-nginx
+  chart: ingress-nginx/ingress-nginx
+  namespace: ingress-nginx
+  version: 3.15.2
+  <<: *template
+
+- name: harbor
+  chart: harbor/harbor
+  namespace: harbor
+  version: 1.5.2
+  <<: *template

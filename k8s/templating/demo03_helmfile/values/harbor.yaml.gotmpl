@@ -1,0 +1,19 @@
+expose:
+  type: ingress
+  tls:
+    enabled: false
+  ingress:
+    hosts:
+      core: harbor.{{ .Values | get "domain" }}
+    annotations:
+      kubernetes.io/ingress.class: nginx
+notary:
+  enabled: false
+
+trivi:
+  enabled: false
+
+clair:
+  enabled: false
+
+harborAdminPassword: "admin"
