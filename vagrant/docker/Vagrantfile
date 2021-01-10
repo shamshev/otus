@@ -1,0 +1,20 @@
+Vagrant.configure('2') do |config|
+  config.vm.box = "ubuntu/focal64"
+  config.vm.network :private_network, ip: "192.168.42.8"
+  config.vm.provider 'virtualbox' do |vb|
+    vb.gui = false
+    vb.memory = '3000'
+    vb.cpus = '2'
+  end
+
+  config.vm.provision 'shell',
+    privileged: true,
+    inline: 'apt update && apt install docker docker-compose -y'
+
+  config.vm.provision 'shell',
+    privileged: true,
+    inline: 'apt update && apt install openjdk-8-jdk maven -y'
+
+  config.vm.synced_folder "../../devops", "/devops",
+    owner: "root", group: "root"
+end
