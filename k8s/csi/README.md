@@ -76,6 +76,15 @@ kubectl get pvc
 
 # demo05
 
+```
+mkdir -p /etc/systemd/system/k3s.service.d/
+cat <<EOF > /etc/systemd/system/k3s.service.d/mount_popagation_flags.conf
+[Service]
+MountFlags=shared
+EOF
+systemctl daemon-reload
+```
+
 `./deploy_snap.sh`
 
 https://github.com/kubernetes-csi/csi-driver-host-path
@@ -94,7 +103,7 @@ kubectl get sc
 
 kubectl apply -f 02_pvc.yml
 kubectl get pvc
-kubectl get pc
+kubectl get pv
 
 kubectl apply -f 03_pod_pvc.yml
 kubectl exec -it demo06-pod -- /bin/sh
@@ -105,7 +114,7 @@ kubectl apply -f 05_snapshot.yml
 kubectl get volumesnapshot
 
 kubectl delete pod demo06-pod
-kubectl delet pvc hpvc
+kubectl delete pvc hpvc
 
 kubectl apply -f 06_restore.yml
 ls -la /var/lib/csi-hostpath-data

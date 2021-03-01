@@ -14,6 +14,8 @@ Open in browser [http://localhost:16686/](http://localhost:16686/)
 
 ## Build and run example apps
 
+works good only with java8
+
 ```
 cd appA
 mvn clean package
