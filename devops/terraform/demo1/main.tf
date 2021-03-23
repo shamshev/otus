@@ -1,11 +1,10 @@
 provider "yandex" {
-  service_account_key_file = "../key.json"
+  token     = "change_me"
   cloud_id  = "change_me"
   folder_id = "change_me"
   zone      = "ru-central1-a"
 }
 
-//i didn't find another way how to get image id
 data "yandex_compute_image" "my_image" {
   family = "ubuntu-1804-lts"
 }

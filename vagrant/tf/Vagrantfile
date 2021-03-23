@@ -1,0 +1,20 @@
+Vagrant.configure('2') do |config|
+    config.vm.box = "ubuntu/focal64"
+    config.vm.provider 'virtualbox' do |vb|
+      vb.gui = false
+      vb.memory = '3000'
+      vb.cpus = '2'
+    end
+  
+    config.vm.synced_folder "../../devops/terraform", "/tf",
+      owner: "root", group: "root"
+
+    config.vm.provision 'shell',
+      privileged: true,
+      inline: 'curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash'
+  
+    config.vm.provision 'shell',
+      privileged: true,
+      inline: 'curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash'
+    
+end
