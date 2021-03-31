@@ -15,8 +15,9 @@ variable subnet_id {
 }
 
 variable instances_list {
-  type = list(string)
-  default = ["srv01", "srv02"]
+  #type = list(string)
+  #default = ["srv01", "srv02"]
+  default = 1
 }
 
 variable instances_dict {

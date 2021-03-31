@@ -45,8 +45,8 @@ resource "yandex_kms_symmetric_key" "key-example" {
 }
 
 resource "yandex_compute_instance" "demo-count" {
-  count = length(var.instances_list)
-  name  = "terraform-${var.instances_list[count.index]}"
+  count = var.instances_list
+  name  = "terraform-app${count.index}"
 
   resources {
     cores  = 2
