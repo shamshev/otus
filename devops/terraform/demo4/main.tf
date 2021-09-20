@@ -41,7 +41,7 @@ locals {
 }
 
 resource "local_file" "generate_inventory" {
-  content = templatefile("hosts.tmpl", { 
+  content = templatefile("hosts.tpl", { 
     names = local.names,
     addrs = local.ips,
   })
