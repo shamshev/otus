@@ -78,7 +78,7 @@ kubectl get pvc
 
 ```
 mkdir -p /etc/systemd/system/k3s.service.d/
-cat <<EOF > /etc/systemd/system/k3s.service.d/mount_popagation_flags.conf
+cat <<EOF > /etc/systemd/system/k3s.service.d/mount_propagation_flags.conf
 [Service]
 MountFlags=shared
 EOF
@@ -91,7 +91,7 @@ https://github.com/kubernetes-csi/csi-driver-host-path
 
 ```
 ./git_clone.sh
-deploy/kubernetes-latest/deploy.sh
+./csi-driver-host-path/deploy/kubernetes-latest/deploy.sh
 kubectl get pods
 ```
 
